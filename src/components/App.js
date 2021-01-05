@@ -1,11 +1,6 @@
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>D&D 5e Access</p>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import Routes from './Routes';
+
+const App = () => <Routes />;
 
 export default App;
