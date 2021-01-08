@@ -1,5 +1,8 @@
 import apiDnD from '../api/apiDnD';
-import { FETCH_MONSTERS_FAILURE, FETCH_MONSTERS_REQUEST, FETCH_MONSTERS_SUCCESS } from './types';
+import {
+  FETCH_MONSTERS_FAILURE, FETCH_MONSTERS_REQUEST, FETCH_MONSTERS_SUCCESS,
+  CHANGE_FILTER,
+} from './types';
 
 const fetchMonstersRequest = () => ({
   type: FETCH_MONSTERS_REQUEST,
@@ -29,4 +32,9 @@ const fetchMonsters = opt => (
   }
 );
 
-export default fetchMonsters;
+const changeFilter = filter => ({
+  type: CHANGE_FILTER,
+  payload: filter,
+});
+
+export { fetchMonsters, changeFilter };

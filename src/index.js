@@ -12,6 +12,7 @@ const INITIAL_STATE = {
     error: '',
     list: [],
   },
+  filter: 'All',
 };
 const store = createStore(rootReducer, INITIAL_STATE, applyMiddleware(thunkMiddleware));
 
