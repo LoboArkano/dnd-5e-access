@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchMonsters, changeFilter } from '../actions/index';
 import MonstersFilter from '../components/MonstersFilter';
@@ -26,20 +27,21 @@ const MonsterList = props => {
   };
 
   const getContent = list => list.map(monster => {
-    const name = `Name: ${monster.name}`;
     const type = `Type: ${monster.type}`;
     const challengeRating = `Challenge Rating: ${monster.challenge_rating}`;
     const size = `Size: ${monster.size}`;
     const hitPoints = `Hit Points: ${monster.hit_points}`;
 
     return (
-      <div key={monster.slug}>
-        <h4>{name}</h4>
-        <p>{type}</p>
-        <p>{challengeRating}</p>
-        <p>{size}</p>
-        <p>{hitPoints}</p>
-      </div>
+      <Link key={monster.slug} to={`/monster/${monster.slug}`}>
+        <div>
+          <h4>{`Name: ${monster.name}`}</h4>
+          <p>{type}</p>
+          <p>{challengeRating}</p>
+          <p>{size}</p>
+          <p>{hitPoints}</p>
+        </div>
+      </Link>
     );
   });
 
