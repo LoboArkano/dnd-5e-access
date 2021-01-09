@@ -11,6 +11,7 @@ const INITIAL_STATE = {
     loading: false,
     error: '',
     list: [],
+    item: {},
   },
   filter: 'All',
 };

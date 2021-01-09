@@ -1,7 +1,7 @@
 import apiDnD from '../api/apiDnD';
 import {
   FETCH_MONSTERS_FAILURE, FETCH_MONSTERS_REQUEST, FETCH_MONSTERS_SUCCESS,
-  CHANGE_FILTER,
+  FETCH_MONSTER_SUCCESS, CHANGE_FILTER,
 } from './types';
 
 const fetchMonstersRequest = () => ({
@@ -11,6 +11,11 @@ const fetchMonstersRequest = () => ({
 const fetchMonstersSuccess = monsters => ({
   type: FETCH_MONSTERS_SUCCESS,
   payload: monsters,
+});
+
+const fectMonsterSuccess = monster => ({
+  type: FETCH_MONSTER_SUCCESS,
+  payload: monster,
 });
 
 const fetchMonstersFailure = error => ({
@@ -32,9 +37,23 @@ const fetchMonsters = opt => (
   }
 );
 
+const fetchMonster = opt => (
+  dispatch => {
+    dispatch(fetchMonstersRequest());
+    apiDnD(opt)
+      .then(response => {
+        const monster = response;
+        dispatch(fectMonsterSuccess(monster));
+      })
+      .catch(error => {
+        dispatch(fetchMonstersFailure(error.message));
+      });
+  }
+);
+
 const changeFilter = filter => ({
   type: CHANGE_FILTER,
   payload: filter,
 });
 
-export { fetchMonsters, changeFilter };
+export { fetchMonsters, changeFilter, fetchMonster };

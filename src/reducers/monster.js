@@ -1,9 +1,13 @@
-import { FETCH_MONSTERS_FAILURE, FETCH_MONSTERS_REQUEST, FETCH_MONSTERS_SUCCESS } from '../actions/types';
+import {
+  FETCH_MONSTERS_FAILURE, FETCH_MONSTERS_REQUEST,
+  FETCH_MONSTERS_SUCCESS, FETCH_MONSTER_SUCCESS,
+} from '../actions/types';
 
 const INITIAL_STATE = {
   loading: false,
   error: '',
   list: [],
+  item: {},
 };
 
 const monsterReducer = (state = INITIAL_STATE, action) => {
@@ -18,6 +22,13 @@ const monsterReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         list: action.payload,
+        error: '',
+      };
+    case FETCH_MONSTER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        item: action.payload,
         error: '',
       };
     case FETCH_MONSTERS_FAILURE:
