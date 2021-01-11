@@ -1,0 +1,16 @@
+.w-100 {
+  width: 100%;
+}
+
+.container {
+  padding: 20px 25px;
+  background-color: #d60202;
+}
+
+.container .brand {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
+  font-size: 40px;
+}
+/*# sourceMappingURL=header.css.map */

@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../assets/stylesheets/header.css';
 
 const Header = () => (
-  <header>
+  <header className="container">
     <nav>
       <ul>
         <li>
-          <Link to="/">D&D 5e Access</Link>
-        </li>
-        <li>
-          <Link to="/monster">Monster</Link>
+          <Link to="/" className="brand">D&D 5e Access</Link>
         </li>
       </ul>
     </nav>
