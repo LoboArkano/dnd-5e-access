@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import App from './components/App';
 import rootReducer from './reducers/index';
+import './assets/stylesheets/reset.css';
 
 const INITIAL_STATE = {
   monsters: {
