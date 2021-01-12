@@ -26,28 +26,25 @@ const fetchMonstersFailure = error => ({
 const fetchMonsters = opt => (
   dispatch => {
     dispatch(fetchMonstersRequest());
-    apiDnD(opt)
+    return apiDnD(opt)
       .then(response => {
         const monsters = response.results;
-        dispatch(fetchMonstersSuccess(monsters));
+
+        return dispatch(fetchMonstersSuccess(monsters));
       })
-      .catch(error => {
-        dispatch(fetchMonstersFailure(error.message));
-      });
+      .catch(error => dispatch(fetchMonstersFailure(error.message)));
   }
 );
 
 const fetchMonster = opt => (
   dispatch => {
     dispatch(fetchMonstersRequest());
-    apiDnD(opt)
+    return apiDnD(opt)
       .then(response => {
         const monster = response;
-        dispatch(fectMonsterSuccess(monster));
+        return dispatch(fectMonsterSuccess(monster));
       })
-      .catch(error => {
-        dispatch(fetchMonstersFailure(error.message));
-      });
+      .catch(error => dispatch(fetchMonstersFailure(error.message)));
   }
 );
 

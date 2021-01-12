@@ -1,4 +1,5 @@
 import axios from 'axios';
+import 'regenerator-runtime/runtime';
 
 const urlApi = 'https://api.open5e.com/monsters/';
 
