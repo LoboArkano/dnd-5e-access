@@ -1,0 +1,117 @@
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.lower-case {
+  text-transform: lowercase;
+}
+
+.info-font, .monster-container .sec-info, .monster-container .section {
+  font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.section-font, .monster-container .section .section-name {
+  font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
+  font-size: 34px;
+}
+
+.property-bold, .monster-container .main-info .lg-item .property, .monster-container .main-info .sm-item .stat .name, .monster-container .sec-info .sec-property {
+  font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.monster-container {
+  padding: 35px 60px;
+  background-color: #fff;
+}
+
+.monster-container .main-info {
+  margin-bottom: 40px;
+}
+
+.monster-container .main-info .lg-item {
+  width: 55%;
+}
+
+.monster-container .main-info .lg-item .name,
+.monster-container .main-info .lg-item .specs {
+  margin-bottom: 20px;
+  font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+}
+
+.monster-container .main-info .lg-item .name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #d60202;
+}
+
+.monster-container .main-info .lg-item .specs {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.monster-container .main-info .lg-item .property {
+  line-height: 25px;
+}
+
+.monster-container .main-info .sm-item {
+  width: 45%;
+  padding: 0 2% 0 2%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.monster-container .main-info .sm-item .stat {
+  width: 50%;
+  height: 26%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.monster-container .main-info .sm-item .stat .name {
+  margin-right: 3px;
+}
+
+.monster-container .sec-info {
+  margin-bottom: 35px;
+}
+
+.monster-container .sec-info .sec-property {
+  line-height: 28px;
+}
+
+.monster-container .section {
+  margin-bottom: 33px;
+}
+
+.monster-container .section .section-name {
+  margin-bottom: 20px;
+}
+
+.monster-container .section .section-info {
+  line-height: 23px;
+  margin-bottom: 8px;
+}
+/*# sourceMappingURL=monster.css.map */

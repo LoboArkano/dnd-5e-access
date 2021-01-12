@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchMonster } from '../actions/index';
+import '../assets/stylesheets/monster.css';
 
 const Monster = props => {
   const {
@@ -49,63 +50,140 @@ const Monster = props => {
             </h4>
           )
           : (
-            <>
-              <h2>{item.name}</h2>
-              <h5>{`${item.size} ${item.type} ${item.alignment}`}</h5>
-              <p>{`Armor Class: ${item.armor_class}`}</p>
-              <p>{`Hit Points: ${item.hit_points} (${item.hit_dice})`}</p>
-              <p>
-                {getKeys(item.speed)}
-                {`Speed: ${keys.map((s, index) => ` ${keys[index]}: ${item.speed[s]}ft`)}`}
-              </p>
-              <p>{`Strength: ${item.strength} (${modifier(item.strength)})`}</p>
-              <p>{`Dexterity: ${item.dexterity} (${modifier(item.dexterity)})`}</p>
-              <p>{`Constitution: ${item.constitution} (${modifier(item.constitution)})`}</p>
-              <p>{`Intelligence: ${item.intelligence} (${modifier(item.intelligence)})`}</p>
-              <p>{`Wisdom: ${item.wisdom} (${modifier(item.wisdom)})`}</p>
-              <p>{`Charisma: ${item.charisma} (${modifier(item.charisma)})`}</p>
-              <p>{`Saving Throws: STR ${item.strength_save ? `+${item.strength_save}` : modifier(item.strength)}, DEX ${item.dexterity_save ? `+${item.dexterity_save}` : modifier(item.dexterity)}, CON ${item.constitution_save ? `+${item.constitution_save}` : modifier(item.constitution)}, INT ${item.intelligence_save ? `+${item.intelligence_save}` : modifier(item.intelligence)}, WIS ${item.wisdom_save ? `+${item.wisdom_save}` : modifier(item.wisdom)}, CHA ${item.charisma_save ? `+${item.charisma_save}` : modifier(item.charisma)}`}</p>
-              <p>
-                {getKeys(item.skills)}
-                {`Skills: ${keys.map((s, index) => ` ${keys[index]}: +${item.skills[s]}`)}`}
-              </p>
-              {item.damage_vulnerabilities
-                ? <p>{`Damage Vulnerabilities: ${item.damage_vulnerabilities}`}</p>
-                : <></>}
-              {item.damage_resistances
-                ? <p>{`Damage Resistances: ${item.damage_resistances}`}</p>
-                : <></>}
-              {item.damage_immunities
-                ? <p>{`Damage Immunities: ${item.damage_immunities}`}</p>
-                : <></>}
-              {item.condition_immunities
-                ? <p>{`Condition Immunities: ${item.condition_immunities}`}</p>
-                : <></>}
-              <p>{`Senses: ${item.senses}`}</p>
-              <p>{`Languages: ${item.languages}`}</p>
-              <p>{`Challenge: ${item.challenge_rating}`}</p>
-              <h3>Special Abilities</h3>
-              {item.special_abilities.map(sp => (
-                <p key={sp.name}>
-                  <span>{`${sp.name}: `}</span>
-                  {`${sp.desc}`}
+            <article className="monster-container">
+              <div className="main-info d-flex w-100">
+                <div className="lg-item">
+                  <h2 className="name">{item.name}</h2>
+                  <h5 className="specs cap">{`${item.size} ${item.type}, ${item.alignment}`}</h5>
+                  <p>
+                    <span className="property">Armor Class: </span>
+                    {`${item.armor_class}`}
+                  </p>
+                  <p>
+                    <span className="property">Hit Points: </span>
+                    {`${item.hit_points} (${item.hit_dice})`}
+                  </p>
+                  <p>
+                    {getKeys(item.speed)}
+                    <span className="property">Speed: </span>
+                    {keys.map((s, index) => (
+                      <>
+                        <span className="cap">{`${keys[index]}: ${item.speed[s]}`}</span>
+                        <span className="lower-case">ft. </span>
+                      </>
+                    ))}
+                  </p>
+                </div>
+                <div className="sm-item d-flex">
+                  <p className="stat d-flex">
+                    <span className="name">Strength: </span>
+                    {`${item.strength} (${modifier(item.strength)})`}
+                  </p>
+                  <p className="stat d-flex">
+                    <span className="name">Dexterity: </span>
+                    {`${item.dexterity} (${modifier(item.dexterity)})`}
+                  </p>
+                  <p className="stat d-flex">
+                    <span className="name">Constitution: </span>
+                    {`${item.constitution} (${modifier(item.constitution)})`}
+                  </p>
+                  <p className="stat d-flex">
+                    <span className="name">Intelligence: </span>
+                    {`${item.intelligence} (${modifier(item.intelligence)})`}
+                  </p>
+                  <p className="stat d-flex">
+                    <span className="name">Wisdom: </span>
+                    {`${item.wisdom} (${modifier(item.wisdom)})`}
+                  </p>
+                  <p className="stat d-flex">
+                    <span className="name">Charisma: </span>
+                    {`${item.charisma} (${modifier(item.charisma)})`}
+                  </p>
+                </div>
+              </div>
+              <div className="sec-info">
+                <p>
+                  <span className="sec-property">Saving Throws: </span>
+                  {`STR ${item.strength_save ? `+${item.strength_save}` : modifier(item.strength)}, DEX ${item.dexterity_save ? `+${item.dexterity_save}` : modifier(item.dexterity)}, CON ${item.constitution_save ? `+${item.constitution_save}` : modifier(item.constitution)}, INT ${item.intelligence_save ? `+${item.intelligence_save}` : modifier(item.intelligence)}, WIS ${item.wisdom_save ? `+${item.wisdom_save}` : modifier(item.wisdom)}, CHA ${item.charisma_save ? `+${item.charisma_save}` : modifier(item.charisma)}`}
                 </p>
-              ))}
-              <h3>Actions</h3>
-              {item.actions.map(act => (
-                <p key={act.name}>
-                  <span>{`${act.name}: `}</span>
-                  {`${act.desc}`}
+                <p className="cap">
+                  {getKeys(item.skills)}
+                  <span className="sec-property">Skills: </span>
+                  {`${keys.map((s, index) => ` ${keys[index]}: +${item.skills[s]}`)}`}
                 </p>
-              ))}
-              <h3>Legendary Actions</h3>
-              {item.legendary_actions.map(act => (
-                <p key={act.name}>
-                  <span>{`${act.name}: `}</span>
-                  {`${act.desc}`}
+                {item.damage_vulnerabilities
+                  ? (
+                    <p className="cap">
+                      <span className="sec-property">Damage Vulnerabilities: </span>
+                      {`${item.damage_vulnerabilities}`}
+                    </p>
+                  )
+                  : <></>}
+                {item.damage_resistances
+                  ? (
+                    <p className="cap">
+                      <span className="sec-property">Damage Resistances: </span>
+                      {`${item.damage_resistances}`}
+                    </p>
+                  )
+                  : <></>}
+                {item.damage_immunities
+                  ? (
+                    <p className="cap">
+                      <span className="sec-property">Damage Immunities: </span>
+                      {`${item.damage_immunities}`}
+                    </p>
+                  )
+                  : <></>}
+                {item.condition_immunities
+                  ? (
+                    <p className="cap">
+                      <span className="sec-property">Condition Immunities: </span>
+                      {`${item.condition_immunities}`}
+                    </p>
+                  )
+                  : <></>}
+                <p className="cap">
+                  <span className="sec-property">Senses: </span>
+                  {`${item.senses}`}
                 </p>
-              ))}
-            </>
+                <p className="cap">
+                  <span className="sec-property">Languages: </span>
+                  {`${item.languages}`}
+                </p>
+                <p>
+                  <span className="sec-property">Challenge: </span>
+                  {`${item.challenge_rating}`}
+                </p>
+              </div>
+              <div className="section">
+                <h3 className="section-name">Special Abilities</h3>
+                {item.special_abilities.map(sp => (
+                  <p className="section-info" key={sp.name}>
+                    <span className="property-bold">{`${sp.name}: `}</span>
+                    {`${sp.desc}`}
+                  </p>
+                ))}
+              </div>
+              <div className="section">
+                <h3 className="section-name">Actions</h3>
+                {item.actions.map(act => (
+                  <p className="section-info" key={act.name}>
+                    <span className="property-bold">{`${act.name}: `}</span>
+                    {`${act.desc}`}
+                  </p>
+                ))}
+              </div>
+              <div className="section">
+                <h3 className="section-name">Legendary Actions</h3>
+                {item.legendary_actions.map(act => (
+                  <p className="section-info" key={act.name}>
+                    <span className="property-bold">{`${act.name}: `}</span>
+                    {`${act.desc}`}
+                  </p>
+                ))}
+              </div>
+            </article>
           )
       }
     </div>
