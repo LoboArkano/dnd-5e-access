@@ -158,30 +158,36 @@ const Monster = props => {
               </div>
               <div className="section">
                 <h3 className="section-name">Special Abilities</h3>
-                {item.special_abilities.map(sp => (
-                  <p className="section-info" key={sp.name}>
-                    <span className="property-bold">{`${sp.name}: `}</span>
-                    {`${sp.desc}`}
-                  </p>
-                ))}
+                {item.special_abilities
+                  ? item.special_abilities.map(sp => (
+                    <p className="section-info" key={sp.name}>
+                      <span className="property-bold">{`${sp.name}: `}</span>
+                      {`${sp.desc}`}
+                    </p>
+                  ))
+                  : <></> }
               </div>
               <div className="section">
                 <h3 className="section-name">Actions</h3>
-                {item.actions.map(act => (
-                  <p className="section-info" key={act.name}>
-                    <span className="property-bold">{`${act.name}: `}</span>
-                    {`${act.desc}`}
-                  </p>
-                ))}
+                {item.actions
+                  ? item.actions.map(act => (
+                    <p className="section-info" key={act.name}>
+                      <span className="property-bold">{`${act.name}: `}</span>
+                      {`${act.desc}`}
+                    </p>
+                  ))
+                  : <></> }
               </div>
               <div className="section">
                 <h3 className="section-name">Legendary Actions</h3>
-                {item.legendary_actions.map(act => (
-                  <p className="section-info" key={act.name}>
-                    <span className="property-bold">{`${act.name}: `}</span>
-                    {`${act.desc}`}
-                  </p>
-                ))}
+                {item.legendary_actions
+                  ? item.legendary_actions.map(act => (
+                    <p className="section-info" key={act.name}>
+                      <span className="property-bold">{`${act.name}: `}</span>
+                      {`${act.desc}`}
+                    </p>
+                  ))
+                  : <></>}
               </div>
             </article>
           )
