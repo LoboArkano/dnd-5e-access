@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchMonsters, changeFilter } from '../actions/index';
 import MonstersFilter from '../components/MonstersFilter';
+import '../assets/stylesheets/monsterList.css';
 
 const MonsterList = props => {
   const { monsters, filter, changeFilter } = props;
@@ -11,7 +12,7 @@ const MonsterList = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMonsters('?limit=1500'));
+    if (!list.length) { dispatch(fetchMonsters('?limit=1500')); }
   }, []);
 
   const handleFilterChange = e => {
@@ -26,33 +27,33 @@ const MonsterList = props => {
     return list.filter(monster => monster.type === filter || monster.size === filter);
   };
 
-  const getContent = list => list.map(monster => {
-    const type = `Type: ${monster.type}`;
-    const challengeRating = `Challenge Rating: ${monster.challenge_rating}`;
-    const size = `Size: ${monster.size}`;
-    const hitPoints = `Hit Points: ${monster.hit_points}`;
-
-    return (
-      <Link key={monster.slug} to={`/monster/${monster.slug}`}>
-        <div>
-          <h4>{`Name: ${monster.name}`}</h4>
-          <p>{type}</p>
-          <p>{challengeRating}</p>
-          <p>{size}</p>
-          <p>{hitPoints}</p>
-        </div>
-      </Link>
-    );
-  });
+  const getContent = list => list.map(monster => (
+    <Link key={monster.slug} to={`/monster/${monster.slug}`} className="item-container">
+      <div className="monster d-flex w-100">
+        <div className="lg-col"><h4>{`${monster.name}`}</h4></div>
+        <div className="md-col cap"><p>{`${monster.type}`}</p></div>
+        <div className="sm-col"><p>{`${monster.challenge_rating}`}</p></div>
+        <div className="xs-col"><p>{`${monster.size}`}</p></div>
+        <div className="xs-col"><p>{`${monster.hit_points}`}</p></div>
+      </div>
+    </Link>
+  ));
 
   return (
-    <div>
+    <div className="main-container">
       {
         loading
           ? <h4>Loading</h4>
           : (
             <>
               <MonstersFilter changeFilter={handleFilterChange} />
+              <div className="row d-flex w-100">
+                <div className="lg-col">Name</div>
+                <div className="md-col">Type</div>
+                <div className="sm-col">Challenge Rating</div>
+                <div className="xs-col">Size</div>
+                <div className="xs-col">Hit Points</div>
+              </div>
               {getContent(filteredMonsters(list, filter))}
             </>
           )

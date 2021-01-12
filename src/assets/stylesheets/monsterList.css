@@ -1,0 +1,76 @@
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.lower-case {
+  text-transform: lowercase;
+}
+
+.info-font, .monster {
+  font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.section-font {
+  font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
+  font-size: 34px;
+}
+
+.property-bold, .row {
+  font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.main-container {
+  margin: 0 30px;
+}
+
+.row {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #a09c9c;
+}
+
+.row,
+.monster {
+  padding: 10px 20px;
+}
+
+.monster:hover {
+  background-color: #ffdf2b;
+  font-weight: 700;
+}
+
+.item-container {
+  color: #161515;
+  text-decoration: none;
+}
+
+.lg-col {
+  width: 44%;
+}
+
+.md-col {
+  width: 24%;
+}
+
+.sm-col {
+  width: 18%;
+}
+
+.xs-col {
+  width: 10%;
+  min-width: 140px;
+}
+/*# sourceMappingURL=monsterList.css.map */

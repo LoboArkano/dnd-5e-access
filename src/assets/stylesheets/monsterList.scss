@@ -1,0 +1,48 @@
+@import 'variables', 'generic';
+
+.main-container {
+  margin: 0 30px;
+}
+
+.row {
+  @extend .property-bold;
+
+  margin-bottom: 15px;
+  border-bottom: 2px solid $gray;
+}
+
+.row,
+.monster {
+  padding: 10px 20px;
+}
+
+.monster {
+  @extend .info-font;
+
+  &:hover {
+    background-color: $yellow;
+    font-weight: 700;
+  }
+}
+
+.item-container {
+  color: $black;
+  text-decoration: none;
+}
+
+.lg-col {
+  width: 44%;
+}
+
+.md-col {
+  width: 24%;
+}
+
+.sm-col {
+  width: 18%;
+}
+
+.xs-col {
+  width: 10%;
+  min-width: 140px;
+}
