@@ -13,7 +13,7 @@ const fetchMonstersSuccess = monsters => ({
   payload: monsters,
 });
 
-const fectMonsterSuccess = monster => ({
+const fetchMonsterSuccess = monster => ({
   type: FETCH_MONSTER_SUCCESS,
   payload: monster,
 });
@@ -42,7 +42,7 @@ const fetchMonster = opt => (
     return apiDnD(opt)
       .then(response => {
         const monster = response;
-        return dispatch(fectMonsterSuccess(monster));
+        return dispatch(fetchMonsterSuccess(monster));
       })
       .catch(error => dispatch(fetchMonstersFailure(error.message)));
   }
@@ -53,4 +53,8 @@ const changeFilter = filter => ({
   payload: filter,
 });
 
-export { fetchMonsters, changeFilter, fetchMonster };
+export {
+  fetchMonsters, changeFilter, fetchMonster,
+  fetchMonstersRequest, fetchMonstersSuccess, fetchMonsterSuccess,
+  fetchMonstersFailure,
+};
