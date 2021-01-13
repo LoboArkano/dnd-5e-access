@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchMonster } from '../actions/index';
 import '../assets/stylesheets/monster.css';
+import loadingImg from '../assets/images/loading.png';
 
 const Monster = props => {
   const {
@@ -12,6 +13,7 @@ const Monster = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchMonster(match.params.name));
   }, [dispatch]);
 
@@ -41,16 +43,17 @@ const Monster = props => {
   };
 
   return (
-    <div>
+    <div className="monster-container">
       {
         loading || item.speed === undefined
           ? (
-            <h4>
-              Loading
-            </h4>
+            <div className="loading d-flex w-100">
+              <img className="loading-img" src={loadingImg} alt="" />
+              <h4 className="text">Loading</h4>
+            </div>
           )
           : (
-            <article className="monster-container">
+            <article>
               <div className="main-info d-flex w-100">
                 <div className="lg-item">
                   <h2 className="name">{item.name}</h2>

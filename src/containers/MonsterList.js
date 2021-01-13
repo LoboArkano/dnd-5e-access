@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { fetchMonsters, changeFilter } from '../actions/index';
 import MonstersFilter from '../components/MonstersFilter';
 import '../assets/stylesheets/monsterList.css';
+import loadingImg from '../assets/images/loading.png';
 
 const MonsterList = props => {
   const { monsters, filter, changeFilter } = props;
@@ -43,7 +44,12 @@ const MonsterList = props => {
     <div className="main-container">
       {
         loading
-          ? <h4>Loading</h4>
+          ? (
+            <div className="loading d-flex w-100">
+              <img className="loading-img" src={loadingImg} alt="" />
+              <h4 className="text">Loading</h4>
+            </div>
+          )
           : (
             <>
               <MonstersFilter changeFilter={handleFilterChange} />
@@ -54,7 +60,9 @@ const MonsterList = props => {
                 <div className="xs-col">Size</div>
                 <div className="xs-col">Hit Points</div>
               </div>
-              {getContent(filteredMonsters(list, filter))}
+              <div className="monster-list">
+                {getContent(filteredMonsters(list, filter))}
+              </div>
             </>
           )
       }

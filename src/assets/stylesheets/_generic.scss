@@ -30,3 +30,27 @@
   font-size: 18px;
   font-weight: 700;
 }
+
+.loading {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .loading-img {
+    margin-top: 55px;
+    margin-bottom: 35px;
+    height: 200px;
+    width: 200px;
+    animation: spin 2s infinite linear;
+  }
+
+  .text {
+    font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
+    font-size: 40px;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
