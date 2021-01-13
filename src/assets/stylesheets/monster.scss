@@ -3,6 +3,7 @@
 .monster-container {
   padding: 35px 60px;
   background-color: $white;
+  min-height: 100vh;
 
   .main-info {
     margin-bottom: 40px;
@@ -47,7 +48,7 @@
         height: 26%;
         align-items: flex-end;
 
-        .name {
+        .prop {
           @extend .property-bold;
 
           margin-right: 3px;

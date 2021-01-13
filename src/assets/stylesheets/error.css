@@ -4,7 +4,6 @@
 
 .d-flex {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -27,7 +26,8 @@
   font-size: 34px;
 }
 
-.property-bold, .error-container {
+.property-bold,
+.error-container {
   font-family: 'Merriweather', Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -42,8 +42,8 @@
   background-color: #f7f2f2;
   border: 1px solid #a09c9c;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-image: url("../images/down-arrow.png");
   background-repeat: no-repeat;
   background-size: 15px;
@@ -52,15 +52,15 @@
 
 .loading {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .loading .loading-img {
@@ -69,7 +69,7 @@
   height: 200px;
   width: 200px;
   -webkit-animation: spin 2s infinite linear;
-          animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
 }
 
 .loading .text {
@@ -80,32 +80,33 @@
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 .error-container {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 40px;
 }
-/*# sourceMappingURL=error.css.map */

@@ -4,7 +4,6 @@
 
 .d-flex {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -33,7 +32,8 @@
   font-weight: 700;
 }
 
-.select, .filter-container .label .filter {
+.select,
+.filter-container .label .filter {
   padding: 6px 10px 9px 10px;
   border-radius: 4%;
   font-size: 16px;
@@ -42,8 +42,8 @@
   background-color: #f7f2f2;
   border: 1px solid #a09c9c;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-image: url("../images/down-arrow.png");
   background-repeat: no-repeat;
   background-size: 15px;
@@ -52,15 +52,15 @@
 
 .loading {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .loading .loading-img {
@@ -69,7 +69,7 @@
   height: 200px;
   width: 200px;
   -webkit-animation: spin 2s infinite linear;
-          animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
 }
 
 .loading .text {
@@ -80,22 +80,24 @@
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes spin {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -103,14 +105,14 @@
   margin-bottom: 40px;
   margin-top: 30px;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .filter-container .label {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-family: 'Merriweather', Arial, Helvetica, sans-serif;
   font-size: 20px;
   color: #161515;
@@ -125,4 +127,3 @@
 .filter-container .label:first-child {
   margin-right: 15px;
 }
-/*# sourceMappingURL=monstersFilter.css.map */

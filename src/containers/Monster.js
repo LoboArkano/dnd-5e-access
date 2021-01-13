@@ -88,27 +88,27 @@ const Monster = props => {
                 </div>
                 <div className="sm-item d-flex">
                   <p className="stat d-flex">
-                    <span className="name">Strength: </span>
+                    <span className="prop">Strength: </span>
                     {`${item.strength} (${modifier(item.strength)})`}
                   </p>
                   <p className="stat d-flex">
-                    <span className="name">Dexterity: </span>
+                    <span className="prop">Dexterity: </span>
                     {`${item.dexterity} (${modifier(item.dexterity)})`}
                   </p>
                   <p className="stat d-flex">
-                    <span className="name">Constitution: </span>
+                    <span className="prop">Constitution: </span>
                     {`${item.constitution} (${modifier(item.constitution)})`}
                   </p>
                   <p className="stat d-flex">
-                    <span className="name">Intelligence: </span>
+                    <span className="prop">Intelligence: </span>
                     {`${item.intelligence} (${modifier(item.intelligence)})`}
                   </p>
                   <p className="stat d-flex">
-                    <span className="name">Wisdom: </span>
+                    <span className="prop">Wisdom: </span>
                     {`${item.wisdom} (${modifier(item.wisdom)})`}
                   </p>
                   <p className="stat d-flex">
-                    <span className="name">Charisma: </span>
+                    <span className="prop">Charisma: </span>
                     {`${item.charisma} (${modifier(item.charisma)})`}
                   </p>
                 </div>
