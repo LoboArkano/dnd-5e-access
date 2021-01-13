@@ -25,7 +25,10 @@ const MonsterList = props => {
       return list;
     }
 
-    return list.filter(monster => monster.type === filter || monster.size === filter);
+    return list.filter(monster => (
+      monster.type.toLowerCase() === filter.toLowerCase()
+      || monster.size.toLowerCase() === filter.toLowerCase()
+    ));
   };
 
   const getContent = list => list.map(monster => (
