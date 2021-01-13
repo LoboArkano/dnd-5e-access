@@ -1,0 +1,46 @@
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.lower-case {
+  text-transform: lowercase;
+}
+
+.info-font {
+  font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.section-font {
+  font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
+  font-size: 34px;
+}
+
+.property-bold {
+  font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footer-container {
+  background-color: #d60202;
+  padding: 20px 25px;
+  color: #fff;
+}
+
+.footer-container .link {
+  color: #fff;
+  text-decoration: none;
+}
+/*# sourceMappingURL=footer.css.map */
