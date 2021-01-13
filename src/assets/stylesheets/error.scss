@@ -1,0 +1,9 @@
+@import 'variables', 'generic';
+
+.error-container {
+  @extend .property-bold;
+
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}

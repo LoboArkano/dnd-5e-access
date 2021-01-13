@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import { fetchMonster } from '../actions/index';
 import '../assets/stylesheets/monster.css';
 import loadingImg from '../assets/images/loading.png';
+import Error from '../components/Error';
 
 const Monster = props => {
   const {
-    item, loading, match,
+    item, loading, match, error,
   } = props;
   let keys = [];
   const dispatch = useDispatch();
@@ -41,6 +42,14 @@ const Monster = props => {
     if (score >= 30) mod = '+10';
     return mod;
   };
+
+  if (error.length) {
+    return (
+      <div className="monster-container">
+        <Error />
+      </div>
+    );
+  }
 
   return (
     <div className="monster-container">
@@ -203,13 +212,14 @@ Monster.propTypes = {
   item: PropTypes.shape().isRequired,
   loading: PropTypes.bool.isRequired,
   match: PropTypes.shape().isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => {
   const { monsters } = state;
-  const { item, loading } = monsters;
+  const { item, loading, error } = monsters;
 
-  return { item, loading };
+  return { item, loading, error };
 };
 
 const mapDispatchToProps = {};

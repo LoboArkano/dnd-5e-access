@@ -16,6 +16,7 @@ const monsterReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true,
+        error: '',
       };
     case FETCH_MONSTERS_SUCCESS:
       return {

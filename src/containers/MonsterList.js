@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchMonsters, changeFilter } from '../actions/index';
 import MonstersFilter from '../components/MonstersFilter';
+import Error from '../components/Error';
 import '../assets/stylesheets/monsterList.css';
 import loadingImg from '../assets/images/loading.png';
 
 const MonsterList = props => {
   const { monsters, filter, changeFilter } = props;
-  const { loading, list } = monsters;
+  const { loading, list, error } = monsters;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,6 +43,14 @@ const MonsterList = props => {
       </div>
     </Link>
   ));
+
+  if (error.length) {
+    return (
+      <div className="main-container">
+        <Error />
+      </div>
+    );
+  }
 
   return (
     <div className="main-container">
@@ -77,6 +86,7 @@ MonsterList.propTypes = {
   monsters: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     list: PropTypes.arrayOf(PropTypes.shape().isRequired).isRequired,
+    error: PropTypes.string.isRequired,
   }).isRequired,
   filter: PropTypes.string.isRequired,
   changeFilter: PropTypes.func.isRequired,
