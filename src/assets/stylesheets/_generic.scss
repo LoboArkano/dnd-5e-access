@@ -31,6 +31,21 @@
   font-weight: 700;
 }
 
+.select {
+  padding: 6px 10px 9px 10px;
+  border-radius: 4%;
+  font-size: 16px;
+  font-weight: 400;
+  color: $gray;
+  background-color: $white;
+  border: 1px solid $gray;
+  appearance: none;
+  background-image: url("../images/down-arrow.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 90%;
+}
+
 .loading {
   align-items: center;
   justify-content: center;
