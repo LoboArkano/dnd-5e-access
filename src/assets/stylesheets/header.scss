@@ -1,0 +1,13 @@
+@import 'variables', 'generic';
+
+.container {
+  padding: 20px 25px;
+  background-color: $red;
+
+  .brand {
+    color: $white;
+    text-decoration: none;
+    font-family: 'MedievalSharp', Arial, Helvetica, sans-serif;
+    font-size: 40px;
+  }
+}
