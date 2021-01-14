@@ -44,6 +44,16 @@ const MonsterList = props => {
     </Link>
   ));
 
+  const getMovileContent = list => list.map(monster => (
+    <Link key={monster.slug} to={`/monster/${monster.slug}`} className="card item-container">
+      <div><h4>{`Name: ${monster.name}`}</h4></div>
+      <div className="cap"><p>{`Type: ${monster.type}`}</p></div>
+      <div><p>{`Challange Rating: ${monster.challenge_rating}`}</p></div>
+      <div><p>{`Size: ${monster.size}`}</p></div>
+      <div><p>{`Hit Points: ${monster.hit_points}`}</p></div>
+    </Link>
+  ));
+
   if (error.length) {
     return (
       <div className="main-container">
@@ -63,7 +73,7 @@ const MonsterList = props => {
             </div>
           )
           : (
-            <>
+            <div className="show">
               <MonstersFilter changeFilter={handleFilterChange} />
               <div className="row d-flex w-100">
                 <div className="lg-col">Name</div>
@@ -75,7 +85,10 @@ const MonsterList = props => {
               <div className="monster-list">
                 {getContent(filteredMonsters(list, filter))}
               </div>
-            </>
+              <div className="monster-list-mov d-none">
+                {getMovileContent(filteredMonsters(list, filter))}
+              </div>
+            </div>
           )
       }
     </div>

@@ -62,7 +62,7 @@ const Monster = props => {
             </div>
           )
           : (
-            <article>
+            <article className="show">
               <div className="main-info d-flex w-100">
                 <div className="lg-item">
                   <h2 className="name">{item.name}</h2>

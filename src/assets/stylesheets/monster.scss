@@ -86,3 +86,38 @@
     }
   }
 }
+
+@media (max-width: 1115px) {
+  .monster-container {
+    .main-info {
+      flex-wrap: wrap;
+
+      .lg-item,
+      .sm-item {
+        width: 100%;
+      }
+
+      .sm-item {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .monster-container {
+    padding: 25px 30px;
+
+    .main-info {
+      .sm-item {
+        justify-content: flex-start;
+
+        .stat {
+          height: max-content;
+          width: 100%;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}

@@ -24,3 +24,22 @@
     margin-right: 15px;
   }
 }
+
+@media (max-width: 697px) {
+  .filter-container {
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+
+    .label {
+      width: 100%;
+
+      .filter {
+        flex-grow: 1;
+      }
+    }
+
+    .label:first-child {
+      margin-right: 0;
+    }
+  }
+}
