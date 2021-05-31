@@ -1,10 +1,27 @@
 import React from 'react';
-import '../assets/stylesheets/error.css';
+import { createUseStyles } from 'react-jss';
 
-const Error = () => (
-  <div className="error-container d-flex w-100">
-    <h1>Ooops!! Page not found</h1>
-  </div>
-);
+const useStyles = createUseStyles({
+  errorContainer: {
+    display: 'flex',
+    height: '100vh',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 40,
+    fontFamily: ['Merriweather', 'Arial', 'Helvetica', 'sans-serif'],
+    fontWeight: 700,
+  },
+});
+
+const Error = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.errorContainer}>
+      <h1>Ooops!! Page not found</h1>
+    </div>
+  );
+};
 
 export default Error;
