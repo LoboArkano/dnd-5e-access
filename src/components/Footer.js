@@ -1,11 +1,32 @@
 import React from 'react';
-import '../assets/stylesheets/footer.css';
+import { createUseStyles } from 'react-jss';
 
-const Footer = () => (
-  <footer className="footer-container w-100">
-    Data provided for
-    <a href="https://api.open5e.com/monsters/" className="link"> Open5e API</a>
-  </footer>
-);
+const useStyles = createUseStyles({
+  footerContainer: {
+    width: '100%',
+    backgroundColor: 'rgb(214, 2, 2)',
+    padding: [20, 25],
+    color: 'rgb(247, 242, 242)',
+  },
+
+  link: {
+    color: 'rgb(247, 242, 242)',
+    textDecoration: 'none',
+
+    '&:hover': {
+      color: 'rgb(160, 156, 156)',
+    },
+  },
+});
+
+const Footer = () => {
+  const classes = useStyles();
+  return (
+    <footer className={classes.footerContainer}>
+      Data provided for
+      <a href="https://api.open5e.com/monsters/" className={classes.link}> Open5e API</a>
+    </footer>
+  );
+};
 
 export default Footer;
