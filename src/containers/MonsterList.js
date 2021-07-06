@@ -1,16 +1,34 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import { createUseStyles } from 'react-jss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchMonsters, changeFilter } from '../actions/index';
 import MonstersFilter from '../components/MonstersFilter';
 import Error from '../components/Error';
-import '../assets/stylesheets/monsterList.css';
 import loadingImg from '../assets/images/loading.png';
+
+const useStyles = createUseStyles({
+  container: {
+    margin: [0, 30],
+    minHeight: '100vh',
+  },
+
+  row: {
+    display: 'flex',
+    width: '100%',
+    fontFamily: ['Merriweather', 'Arial', 'Helvetica', 'sans-serif'],
+    fontSize: 18,
+    fontWeight: 700,
+    marginBottom: 15,
+    borderBottom: [2, 'solid', 'rgb(160, 156, 156)'],
+  },
+});
 
 const MonsterList = props => {
   const { monsters, filter, changeFilter } = props;
   const { loading, list, error } = monsters;
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -56,14 +74,14 @@ const MonsterList = props => {
 
   if (error.length) {
     return (
-      <div className="main-container">
+      <div className={classes.container}>
         <Error />
       </div>
     );
   }
 
   return (
-    <div className="main-container">
+    <div className={classes.container}>
       {
         loading
           ? (
@@ -75,7 +93,7 @@ const MonsterList = props => {
           : (
             <div className="show">
               <MonstersFilter changeFilter={handleFilterChange} />
-              <div className="row d-flex w-100">
+              <div className={classes.row}>
                 <div className="lg-col">Name</div>
                 <div className="md-col">Type</div>
                 <div className="sm-col">Challenge Rating</div>
