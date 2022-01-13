@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   myheader: {
-    padding: [20, 25],
+    padding: [20, 24],
     backgroundColor: 'rgb(214, 2, 2)',
 
     '& a': {
