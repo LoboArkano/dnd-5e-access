@@ -2,16 +2,15 @@ pipeline {
 
   agent any
 
-  tools {
-    nodejs "nodejs"
-  }
-
   stages {
 
     stage('Install Packages') {
 
       steps {
-        sh 'npm install'
+        echo "installing the application..."
+        nodejs('Node-17.0.1') {
+          sh 'npm install'
+        }
       }
     }
 
@@ -23,14 +22,19 @@ pipeline {
 
           steps {
             echo "testing the application..."
-            sh 'npm run test'
+            nodejs('Node-17.0.1') {
+              sh 'npm run test'
+            }
           }
         }
 
         stage('Create Build Artifacts') {
 
           steps {
-            sh 'npm run build'
+            echo "building the application..."
+            nodejs('Node-17.0.1') {
+              sh 'npm run build'
+            }
           }
         }
       }
